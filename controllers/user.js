@@ -27,7 +27,7 @@ const userSignUp = async (req, res) => {
   await newUser.save();
   res.status(201).json({
     _id: newUser._id,
-    name: newUser.name,
+    firstname: newUser.firstname,
     email: newUser.email,
     token: getToken(newUser._id),
   });
@@ -51,7 +51,7 @@ const userLogin = async (req, res) => {
   // res.json({ user });
   res.status(202).json({
     _id:user._id,
-    name:user.name,
+    firstname:user.firstname,
     email:user.email,
     token:getToken(user._id)
   })
