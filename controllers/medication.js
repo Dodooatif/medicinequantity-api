@@ -3,6 +3,7 @@ const Medication = require("../models/medicationSchema");
 //adding a new Medication
 const addMedication = async (req, res) => {
   const newMedication = new Medication({
+    date: req.body.date,
     name: req.body.name,
     quantity: req.body.quantity,
     dose: req.body.dose,
@@ -28,6 +29,7 @@ const getSingleMedication = async (req, res) => {
 const updateMedication = async (req, res) => {
   const foundMedication = await Medication.findById(req.params._id);
   if (foundMedication) {
+    (foundMedication.date = req.body.date),
     (foundMedication.name = req.body.name),
       (foundMedication.quantity = req.body.quantity),
       (foundMedication.dose = req.body.dose),
